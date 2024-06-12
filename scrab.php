@@ -7,7 +7,7 @@ $client = new Client();
 
 $baseUrl = "https://sea.mashable.com/";
 $pageNum = 1;
-$stopDate = strtotime('2022-12-31');
+$stopDate = strtotime('2022-12-30');
 
 do {
     $crawler = $client->request("GET", $baseUrl . "?page=" . $pageNum);
@@ -18,7 +18,7 @@ do {
             $caption = $node->filter(".caption")->text();
             $link = $node->filter("a")->attr("href");
 
-            echo "Caption: $caption\n </br>";
+            echo "Title: $caption\n </br>";
             echo "Date Published: " . date("F j, Y", $datePublished) . "\n</br>"; // format date
             echo "Link: $link\n\n</br>";
             echo "</br>";
